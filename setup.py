@@ -8,9 +8,6 @@ from pprint import pprint
 from setuptools import setup, Extension
 from setuptools.command.build_ext import build_ext
 
-with open("README.md", encoding="utf-8") as f:
-    readme = f.read()
-
 # Parse command line flags
 flags = {k: 'OFF' for k in ['--debug', '--use-cuda', '--use-itk']}
 for flag in flags.keys():
@@ -75,17 +72,7 @@ class CMakeBuild(build_ext):
 
 
 setup(
-    name='python-stk',
-    version='0.4',
-    author='Simon Ekström',
-    author_email='',
-    description='',
-    long_description=readme,
-    long_description_content_type='text/markdown',
-    install_requires=['numpy'],
-    packages=['stk'],
     ext_modules=[CMakeExtension('_stk', '.')],
     cmdclass={'build_ext': CMakeBuild},
-    zip_safe=False,
 )
 
