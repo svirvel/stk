@@ -1,4 +1,6 @@
 recursive-include src *
 recursive-include third_party *
+recursive-include examples *
+recursive-include test *
 include cmake/*
 include CMakeLists.txt
