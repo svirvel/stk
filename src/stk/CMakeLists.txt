@@ -53,6 +53,16 @@ if (STK_USE_CUDA)
     )
 endif()
 
+if (STK_USE_WEBGPU)
+    set(STK_SRCS
+        ${STK_SRCS}
+        "image/webgpu_volume.cpp"
+        "image/webgpu_volume.h"
+        "webgpu/webgpu.cpp"
+        "webgpu/webgpu.h"
+    )
+endif()
+
 if(STK_ITK_BRIDGE)
     set(STK_SRCS
         ${STK_SRCS}
@@ -68,6 +78,10 @@ target_include_directories(stk PUBLIC
     "${CMAKE_CURRENT_SOURCE_DIR}/.."
     ${CMAKE_CUDA_TOOLKIT_INCLUDE_DIRECTORIES}
     )
+
+if (STK_USE_WEBGPU)
+    target_link_libraries(stk PUBLIC wgpu_native)
+endif()
 
 if(NIFTI_FOUND)
     target_include_directories(stk PRIVATE ${NIFTI_INCLUDE_DIR})

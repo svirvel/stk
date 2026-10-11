@@ -13,6 +13,7 @@ CMake options:
   + `STK_BUILD_EXAMPLES`: build example programs
   + `STK_BUILD_TESTS`: build tests
   + `STK_USE_CUDA`: build with CUDA support
+  + `STK_USE_WEBGPU`: build with WebGPU support (`stk::WebGpuVolume` and `stk::webgpu`), downloads [wgpu-native](https://github.com/gfx-rs/wgpu-native)
   + `STK_WARNINGS_ARE_ERRORS`: compilation will fail on warnings
   + `STK_BUILD_WITH_DEBUG_INFO`: include debug symbols in the binaries
   + `STK_ENABLE_FAST_MATH`: enable unsafe (non IEEE 754-compliant) optimisations

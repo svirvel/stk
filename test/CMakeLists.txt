@@ -23,6 +23,13 @@ if (STK_USE_CUDA)
     )
 endif ()
 
+if (STK_USE_WEBGPU)
+    set(STK_TEST_SRCS
+        ${STK_TEST_SRCS}
+        "test_webgpu.cpp"
+    )
+endif ()
+
 add_executable(stk_test ${STK_TEST_SRCS})
 
 add_test(stk_test stk_test WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
